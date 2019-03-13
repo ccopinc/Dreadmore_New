@@ -1,0 +1,683 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="core_User">
+          <Key>
+            <PropertyRef Name="id_User" />
+          </Key>
+          <Property Name="id_User" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Pwd" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="FaceBook" Type="nvarchar" MaxLength="100" />
+          <Property Name="Instagram" Type="nvarchar" MaxLength="100" />
+          <Property Name="Twitter" Type="nvarchar" MaxLength="100" />
+          <Property Name="SnapChat" Type="nvarchar" MaxLength="100" />
+          <Property Name="SecLevel" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="movie_Details">
+          <Key>
+            <PropertyRef Name="IMDBID" />
+          </Key>
+          <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Year" Type="int" />
+          <Property Name="Rated" Type="nvarchar" MaxLength="10" />
+          <Property Name="Released" Type="nvarchar" MaxLength="50" />
+          <Property Name="Runtime" Type="nchar" MaxLength="10" />
+          <Property Name="Genre" Type="nvarchar" MaxLength="50" />
+          <Property Name="Director" Type="nvarchar" MaxLength="100" />
+          <Property Name="Writer" Type="nvarchar" MaxLength="500" />
+          <Property Name="Actors" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Plot" Type="nvarchar(max)" />
+          <Property Name="Language" Type="nvarchar" MaxLength="50" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+          <Property Name="Awards" Type="nvarchar" MaxLength="50" />
+          <Property Name="Poster" Type="nvarchar" MaxLength="250" />
+          <Property Name="Ratings" Type="nvarchar" MaxLength="500" />
+          <Property Name="Metascore" Type="nvarchar" MaxLength="50" />
+          <Property Name="IMDBRating" Type="nvarchar" MaxLength="10" />
+          <Property Name="IMDBVotes" Type="nvarchar" MaxLength="15" />
+          <Property Name="IMDBID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="DVD" Type="nvarchar" MaxLength="50" />
+          <Property Name="BoxOffice" Type="nvarchar" MaxLength="50" />
+          <Property Name="Production" Type="nvarchar" MaxLength="100" />
+          <Property Name="Website" Type="nvarchar" MaxLength="100" />
+          <Property Name="Response" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="movie_News">
+          <Key>
+            <PropertyRef Name="id_MovieNews" />
+          </Key>
+          <Property Name="id_MovieNews" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IMDB_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MovieTitle" Type="nvarchar" MaxLength="100" />
+          <Property Name="News" Type="nvarchar(max)" />
+          <Property Name="NewsDate" Type="datetime" />
+          <Property Name="NewsBy" Type="int" />
+        </EntityType>
+        <EntityType Name="movie_Review">
+          <Key>
+            <PropertyRef Name="id_Review" />
+          </Key>
+          <Property Name="id_Review" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IMDB_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="id_Reviewer" Type="int" Nullable="false" />
+          <Property Name="MovieTitle" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ReviewTitle" Type="nvarchar" MaxLength="100" />
+          <Property Name="Review" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="OverAllPoints" Type="int" Nullable="false" />
+          <Property Name="ScriptPoints" Type="int" Nullable="false" />
+          <Property Name="ActingPoints" Type="int" Nullable="false" />
+          <Property Name="EffectsPoints" Type="int" Nullable="false" />
+          <Property Name="SoundPoints" Type="int" Nullable="false" />
+          <Property Name="ReviewDate" Type="datetime" />
+          <Property Name="TotalScore" Type="int" Nullable="false" />
+          <Property Name="Approved" Type="bit" />
+          <Property Name="ApprovedBy" Type="int" />
+          <Property Name="ApprovedDate" Type="date" />
+        </EntityType>
+        <EntityType Name="quote_Quote">
+          <Key>
+            <PropertyRef Name="id_Quote" />
+          </Key>
+          <Property Name="id_Quote" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Quote" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="QuoteBy" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="QuoteByImage" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="writing_Writing">
+          <Key>
+            <PropertyRef Name="id_Writing" />
+          </Key>
+          <Property Name="id_Writing" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WritingType" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Author" Type="int" Nullable="false" />
+          <Property Name="WritingUrl" Type="nvarchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="up_movie_GetReviewerInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="core_User" EntityType="Self.core_User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="movie_Details" EntityType="Self.movie_Details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="movie_News" EntityType="Self.movie_News" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="movie_Review" EntityType="Self.movie_Review" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="quote_Quote" EntityType="Self.quote_Quote" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="writing_Writing" EntityType="Self.writing_Writing" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="core_User">
+          <Key>
+            <PropertyRef Name="id_User" />
+          </Key>
+          <Property Name="id_User" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pwd" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FaceBook" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Instagram" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Twitter" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SnapChat" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SecLevel" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="movie_Details">
+          <Key>
+            <PropertyRef Name="IMDBID" />
+          </Key>
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Year" Type="Int32" />
+          <Property Name="Rated" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Released" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Runtime" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Genre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Director" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Writer" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Actors" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Plot" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Language" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Awards" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Poster" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Ratings" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Metascore" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IMDBRating" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="IMDBVotes" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="IMDBID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DVD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BoxOffice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Production" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Website" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Response" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="movie_News">
+          <Key>
+            <PropertyRef Name="id_MovieNews" />
+          </Key>
+          <Property Name="id_MovieNews" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IMDB_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MovieTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="News" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NewsDate" Type="DateTime" Precision="3" />
+          <Property Name="NewsBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="movie_Review">
+          <Key>
+            <PropertyRef Name="id_Review" />
+          </Key>
+          <Property Name="id_Review" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IMDB_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="id_Reviewer" Type="Int32" Nullable="false" />
+          <Property Name="MovieTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ReviewTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Review" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OverAllPoints" Type="Int32" Nullable="false" />
+          <Property Name="ScriptPoints" Type="Int32" Nullable="false" />
+          <Property Name="ActingPoints" Type="Int32" Nullable="false" />
+          <Property Name="EffectsPoints" Type="Int32" Nullable="false" />
+          <Property Name="SoundPoints" Type="Int32" Nullable="false" />
+          <Property Name="ReviewDate" Type="DateTime" Precision="3" />
+          <Property Name="TotalScore" Type="Int32" Nullable="false" />
+          <Property Name="Approved" Type="Boolean" />
+          <Property Name="ApprovedBy" Type="Int32" />
+          <Property Name="ApprovedDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="quote_Quote">
+          <Key>
+            <PropertyRef Name="id_Quote" />
+          </Key>
+          <Property Name="id_Quote" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Quote" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="QuoteBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="QuoteByImage" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="writing_Writing">
+          <Key>
+            <PropertyRef Name="id_Writing" />
+          </Key>
+          <Property Name="id_Writing" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WritingType" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Author" Type="Int32" Nullable="false" />
+          <Property Name="WritingUrl" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="DMDB" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="core_User" EntityType="Self.core_User" />
+          <EntitySet Name="movie_Details" EntityType="Self.movie_Details" />
+          <EntitySet Name="movie_News" EntityType="Self.movie_News" />
+          <EntitySet Name="movie_Review" EntityType="Self.movie_Review" />
+          <EntitySet Name="quote_Quote" EntityType="Self.quote_Quote" />
+          <EntitySet Name="writing_Writing" EntityType="Self.writing_Writing" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <FunctionImport Name="up_movie_GetReviewerInfo" ReturnType="Collection(Model.up_movie_GetReviewerInfo_Result)">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="up_movie_GetReviewerInfo_Result">
+          <Property Type="String" Name="FirstName" Nullable="true" MaxLength="20" />
+          <Property Type="Int32" Name="Reviews" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="DMDB">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="Model.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="Model.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="Model.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="Model.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="Model.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="core_User">
+            <EntityTypeMapping TypeName="Model.core_User">
+              <MappingFragment StoreEntitySet="core_User">
+                <ScalarProperty Name="id_User" ColumnName="id_User" />
+                <ScalarProperty Name="Pwd" ColumnName="Pwd" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="FaceBook" ColumnName="FaceBook" />
+                <ScalarProperty Name="Instagram" ColumnName="Instagram" />
+                <ScalarProperty Name="Twitter" ColumnName="Twitter" />
+                <ScalarProperty Name="SnapChat" ColumnName="SnapChat" />
+                <ScalarProperty Name="SecLevel" ColumnName="SecLevel" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="movie_Details">
+            <EntityTypeMapping TypeName="Model.movie_Details">
+              <MappingFragment StoreEntitySet="movie_Details">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Rated" ColumnName="Rated" />
+                <ScalarProperty Name="Released" ColumnName="Released" />
+                <ScalarProperty Name="Runtime" ColumnName="Runtime" />
+                <ScalarProperty Name="Genre" ColumnName="Genre" />
+                <ScalarProperty Name="Director" ColumnName="Director" />
+                <ScalarProperty Name="Writer" ColumnName="Writer" />
+                <ScalarProperty Name="Actors" ColumnName="Actors" />
+                <ScalarProperty Name="Plot" ColumnName="Plot" />
+                <ScalarProperty Name="Language" ColumnName="Language" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Awards" ColumnName="Awards" />
+                <ScalarProperty Name="Poster" ColumnName="Poster" />
+                <ScalarProperty Name="Ratings" ColumnName="Ratings" />
+                <ScalarProperty Name="Metascore" ColumnName="Metascore" />
+                <ScalarProperty Name="IMDBRating" ColumnName="IMDBRating" />
+                <ScalarProperty Name="IMDBVotes" ColumnName="IMDBVotes" />
+                <ScalarProperty Name="IMDBID" ColumnName="IMDBID" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="DVD" ColumnName="DVD" />
+                <ScalarProperty Name="BoxOffice" ColumnName="BoxOffice" />
+                <ScalarProperty Name="Production" ColumnName="Production" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="Response" ColumnName="Response" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="movie_News">
+            <EntityTypeMapping TypeName="Model.movie_News">
+              <MappingFragment StoreEntitySet="movie_News">
+                <ScalarProperty Name="id_MovieNews" ColumnName="id_MovieNews" />
+                <ScalarProperty Name="IMDB_ID" ColumnName="IMDB_ID" />
+                <ScalarProperty Name="MovieTitle" ColumnName="MovieTitle" />
+                <ScalarProperty Name="News" ColumnName="News" />
+                <ScalarProperty Name="NewsDate" ColumnName="NewsDate" />
+                <ScalarProperty Name="NewsBy" ColumnName="NewsBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="movie_Review">
+            <EntityTypeMapping TypeName="Model.movie_Review">
+              <MappingFragment StoreEntitySet="movie_Review">
+                <ScalarProperty Name="id_Review" ColumnName="id_Review" />
+                <ScalarProperty Name="IMDB_ID" ColumnName="IMDB_ID" />
+                <ScalarProperty Name="id_Reviewer" ColumnName="id_Reviewer" />
+                <ScalarProperty Name="MovieTitle" ColumnName="MovieTitle" />
+                <ScalarProperty Name="ReviewTitle" ColumnName="ReviewTitle" />
+                <ScalarProperty Name="Review" ColumnName="Review" />
+                <ScalarProperty Name="OverAllPoints" ColumnName="OverAllPoints" />
+                <ScalarProperty Name="ScriptPoints" ColumnName="ScriptPoints" />
+                <ScalarProperty Name="ActingPoints" ColumnName="ActingPoints" />
+                <ScalarProperty Name="EffectsPoints" ColumnName="EffectsPoints" />
+                <ScalarProperty Name="SoundPoints" ColumnName="SoundPoints" />
+                <ScalarProperty Name="ReviewDate" ColumnName="ReviewDate" />
+                <ScalarProperty Name="TotalScore" ColumnName="TotalScore" />
+                <ScalarProperty Name="Approved" ColumnName="Approved" />
+                <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+                <ScalarProperty Name="ApprovedDate" ColumnName="ApprovedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="quote_Quote">
+            <EntityTypeMapping TypeName="Model.quote_Quote">
+              <MappingFragment StoreEntitySet="quote_Quote">
+                <ScalarProperty Name="id_Quote" ColumnName="id_Quote" />
+                <ScalarProperty Name="Quote" ColumnName="Quote" />
+                <ScalarProperty Name="QuoteBy" ColumnName="QuoteBy" />
+                <ScalarProperty Name="QuoteByImage" ColumnName="QuoteByImage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="writing_Writing">
+            <EntityTypeMapping TypeName="Model.writing_Writing">
+              <MappingFragment StoreEntitySet="writing_Writing">
+                <ScalarProperty Name="id_Writing" ColumnName="id_Writing" />
+                <ScalarProperty Name="WritingType" ColumnName="WritingType" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="WritingUrl" ColumnName="WritingUrl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="Model.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="up_movie_GetReviewerInfo" FunctionName="Model.Store.up_movie_GetReviewerInfo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.up_movie_GetReviewerInfo_Result">
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Reviews" ColumnName="Reviews" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
