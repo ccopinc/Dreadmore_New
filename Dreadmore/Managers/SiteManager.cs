@@ -16,7 +16,7 @@ namespace Dreodmare.Managers
             int n = list.Count;
             Random rnd = new Random();
             int i = rnd.Next(0, n);
-            quote_Quote dbQuote = list[i];
+            quote_Quote dbQuote = list[i]; 
 
             Quotes quote = new Quotes()
             {
