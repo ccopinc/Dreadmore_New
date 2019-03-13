@@ -1,0 +1,125 @@
+﻿@model Dreadmore.DTOModels.ReviewDetails
+
+
+<div style="height: 600px; background-color: black;">
+    <div class="Review-Movie-TItle">@Model.MovieTitle</div>
+    <div class="Review-Review-TItle">@Model.ReviewTitle</div>
+    <div class="Review-Review">@Model.Review</div>
+    <div class="Review-Reviewer">Reviewed By:&nbsp;&nbsp;<span style="color: whitesmoke;">@Model.Reviewer</span></div>
+    <div class="spacer-25"></div>
+
+    <table style="width: 800px;">
+        <tr>
+            <td colspan="2" style="font-family: 'Burgos city'; font-size: 20pt; ">Review Ratings (0-5)&nbsp;<span style="color: red;" class="fa fa-skull checked"></span></td>
+        </tr>
+        <tr>
+            <td "width: 400px;">Total Score</td>
+            <td "width: 400px;">Overall Score</td>
+        </tr>
+        <tr>
+            <td>
+                @for (var i = 0; i < Model.TotalPoints; i++)
+                {
+                    <span style="color: red;" class="fa fa-skull checked"></span>
+                }
+            </td>
+            <td>
+                @for (var i = 0; i < Model.OverAllPoints; i++)
+                {
+                    <span style="color: red;" class="fa fa-skull checked"></span>
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>Acting Score</td>
+            <td>Effects Score</td>
+        </tr>
+        <tr>
+            <td>
+                @for (var i = 0; i < Model.ActingPoints; i++)
+                {
+                    <span style="color: red;" class="fa fa-skull checked"></span>
+                }
+            </td>
+            <td>
+                @for (var i = 0; i < Model.EffectsPoints; i++)
+                {
+                    <span style="color: red;" class="fa fa-skull checked"></span>
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>Sound Score</td>
+            <td>Script Score</td>
+        </tr>
+        <tr>
+            <td>
+                @for (var i = 0; i < Model.SoundPoints; i++)
+                {
+                    <span style="color: red;" class="fa fa-skull checked"></span>
+                }
+            </td>
+            <td>
+                @for (var i = 0; i < Model.ScriptPoints; i++)
+                {
+                    <span style="color: red;" class="fa fa-skull checked"></span>
+                }
+            </td>
+        </tr>
+    </table>
+
+    <div class="spacer-25"></div>
+    <button id="showDetails" onclick="viewDetails('movieDetails')" class="w3-btn w3-black w3-block w3-border-black w3-black w3-left-align w3-border-0 w3-text-white" style="outline-width: 0px;font-family: 'The Macabre'; font-size: 20pt;">Show Movie Details</button>
+    <div id="movieDetails" class="w3-hide ">
+        <table style="width: 900px;">
+            <tr class="movie-plot">
+                <td class="details-header" style="width: 150px;vertical-align: top;">PLOT:</td>
+                <td>@Model.Movie.Plot</td>
+                <td rowspan="9"><img src="@Model.Movie.Poster" /></td>
+            </tr>
+            <tr class="movie-plot">
+                <td class="details-header" style="width: 150px; ">STARRING:</td>
+                <td>@Model.Movie.Actors</td>
+                <td></td>
+
+            </tr>
+            <tr class="movie-plot">
+                <td class="details-header" style="width: 150px;">DIRECTED BY:</td>
+                <td>@Model.Movie.Director</td>
+                <td></td>
+            </tr>
+            <tr class="movie-plot">
+                <td class="details-header" style="width: 150px;">WRITTEN BY:</td>
+                <td>@Model.Movie.Writer</td>
+                <td></td>
+            </tr>
+            <tr class="movie-plot">
+                <td class="details-header" style="width: 150px;">PRODUCED BY:</td>
+                <td>@Model.Movie.Production</td>
+                <td></td>
+            </tr>
+            <tr class="movie-plot">
+                <td class="details-header" style="width: 150px;">RELEASED:</td>
+                <td>@Model.Movie.Released</td>
+                <td></td>
+            </tr>
+            <tr class="movie-plot">
+                <td class="details-header" style="width: 150px;">DVD RELEASE:</td>
+                <td>@Model.Movie.DVD</td>
+                <td></td>
+            </tr>
+            <tr class="movie-plot">
+                <td class="details-header" style="width: 150px;">RATED:</td>
+                <td>@Model.Movie.Rated</td>
+                <td></td>
+            </tr>
+            <tr class="movie-plot">
+                <td class="details-header" style="width: 150px;">RUNTIME:</td>
+                <td>@Model.Movie.Runtime</td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+

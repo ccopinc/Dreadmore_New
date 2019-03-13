@@ -1,6 +1,22 @@
-﻿body {
+﻿
+@font-face {
+    font-family: 'The Macabre';
+    src: url('The Macabre.otf') format('opentype');
+}
+@font-face {
+    font-family: 'GULAGDECAY';
+    src: url('GULAGDECAY.TTF') format('truetype');
+}
+@font-face {
+    font-family: 'BURGOS CITY';
+    src: url('BURGOS CITY.OTF') format('opentype');
+}
+
+body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color: black;
+    color: lightgray;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -9,16 +25,82 @@
     padding-right: 15px;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
-}
-
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
 textarea {
     max-width: 280px;
 }
+
+
+/*Review Tables*/
+.HeaderRow {
+    background-image: url('../Images/ReviewHeader.gif');
+    font-size: 22pt;
+    font-family: The Macabre;
+    color: black;
+    text-align: center;
+}
+
+.ReviewRow {
+    font-size: 16pt;
+    font-family: The Macabre;
+    text-align: center;
+    padding-top: 10px;
+}
+.MovieTitle{
+    color: whitesmoke;
+    text-decoration: none;
+}
+.MovieTitle:hover {
+   color: maroon;
+}
+
+.TitleColumn {
+    width: 300px;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.ScoreColumn {
+    width: 100px;
+}
+
+.ReviewdByColumn {
+    width: 250px;
+}
+.ReviewdDateColumn {
+    width: 250px;
+}
+/*  End Review Table*/
+
+/*  Review  */
+.Review-Movie-TItle {
+    color: maroon;
+    font-size: 28pt;
+    font-family: Burgos City;
+}
+.Review-Review-TItle {
+    color: Silver;
+    font-size: 18pt;
+    font-family: Burgos City;
+}
+.Review-Review {
+    color: whitesmoke;
+    font-size: 14pt;
+    font-family: Arial;
+}
+
+.movie-plot {
+    width: 800px;
+    color: whitesmoke;
+    font-size: 12pt;
+    font-family: Arial;
+}
+
+
+
+
+
+
+

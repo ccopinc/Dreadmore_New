@@ -1,0 +1,12 @@
+﻿@model Dreadmore.DTOModels.Quote
+
+@{
+    ViewBag.Title = "GetQuote";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+<table style="width: 800px; padding-top: 50px;">
+    <tr>
+        <td class="Quote-text" style="width: 450px;text-align: center">@Model.QuoteText</td>
+        <td style="width: 350px;text-align: center" class="QuoteBy-text"><img src="../@Model.QuoteByImage" /><br />@Model.QuoteBy</td>
+    </tr>
+</table>

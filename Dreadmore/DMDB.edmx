@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
@@ -81,6 +81,7 @@
           <Property Name="SnapChat" Type="nvarchar" MaxLength="100" />
           <Property Name="SecLevel" Type="int" Nullable="false" />
           <Property Name="UserName" Type="nvarchar" MaxLength="20" />
+          <Property Name="id_aspUser" Type="nvarchar" MaxLength="128" />
         </EntityType>
         <EntityType Name="movie_Details">
           <Key>
@@ -252,8 +253,7 @@
             <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -331,6 +331,7 @@
           <Property Name="SnapChat" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="SecLevel" Type="Int32" Nullable="false" />
           <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="id_aspUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="movie_Details">
           <Key>
@@ -470,7 +471,7 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
           <FunctionImport Name="up_movie_GetReviewerInfo" ReturnType="Collection(Model.up_movie_GetReviewerInfo_Result)">
-            <Parameter Name="id" Mode="In" Type="Int32" />
+          <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="up_movie_GetReviewerInfo_Result">
@@ -541,6 +542,7 @@
           <EntitySetMapping Name="core_User">
             <EntityTypeMapping TypeName="Model.core_User">
               <MappingFragment StoreEntitySet="core_User">
+                <ScalarProperty Name="id_aspUser" ColumnName="id_aspUser" />
                 <ScalarProperty Name="id_User" ColumnName="id_User" />
                 <ScalarProperty Name="Pwd" ColumnName="Pwd" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />

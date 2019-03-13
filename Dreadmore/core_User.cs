@@ -25,5 +25,6 @@ namespace Dreadmore
         public string SnapChat { get; set; }
         public int SecLevel { get; set; }
         public string UserName { get; set; }
+        public string id_aspUser { get; set; }
     }
 }

@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=8.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.8.0.0\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -54,6 +57,9 @@
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -201,6 +207,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MovieController.cs" />
     <Compile Include="core_User.cs">
       <DependentUpon>DMDB.tt</DependentUpon>
     </Compile>
@@ -222,11 +229,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DMDB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="DTOModels\GetReviews.cs" />
     <Compile Include="DTOModels\Infrastructure\MapperBase.cs" />
+    <Compile Include="DTOModels\MovieDetails.cs" />
     <Compile Include="DTOModels\Quote.cs" />
+    <Compile Include="DTOModels\ReviewDetails.cs" />
+    <Compile Include="DTOModels\ReviewsViewModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Managers\MovieManager.cs" />
     <Compile Include="Managers\SiteManager.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -271,6 +283,31 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\Close.png" />
+    <Content Include="Images\MovieReviews.png" />
+    <Content Include="Images\Nav\About_Link.png" />
+    <Content Include="Images\Nav\About_over.png" />
+    <Content Include="Images\Nav\Art_link.png" />
+    <Content Include="Images\Nav\art_over.png" />
+    <Content Include="Images\Nav\Convention_Link.png" />
+    <Content Include="Images\Nav\Convention_Over.png" />
+    <Content Include="Images\Nav\Gaming_Link.png" />
+    <Content Include="Images\Nav\Gaming_Over.png" />
+    <Content Include="Images\Nav\Home_Link.png" />
+    <Content Include="Images\Nav\Home_Over.png" />
+    <Content Include="Images\Nav\Movie_Link.png" />
+    <Content Include="Images\Nav\Movie_Over.png" />
+    <Content Include="Images\Nav\store_link.png" />
+    <Content Include="Images\Nav\store_over.png" />
+    <Content Include="Images\Nav\Writing_Link.png" />
+    <Content Include="Images\Nav\Writing_Over.png" />
+    <Content Include="Images\Quotes\Dante_Inferno.png" />
+    <Content Include="Images\Quotes\Dracula_Bram_Stoker.png" />
+    <Content Include="Images\Quotes\Hellraiser_Lead_Cenobite.png" />
+    <Content Include="Images\Quotes\Shakespeare.png" />
+    <Content Include="Images\ReviewHeader.gif" />
+    <Content Include="Images\skull.png" />
+    <Content Include="Images\Title.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="DMDB.edmx">
@@ -280,7 +317,11 @@
     <Content Include="DMDB.edmx.diagram">
       <DependentUpon>DMDB.edmx</DependentUpon>
     </Content>
+    <Content Include="Content\BURGOS CITY.OTF" />
+    <Content Include="Content\GULAGDECAY.TTF" />
+    <Content Include="Content\The Macabre.otf" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\ddaccordion.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
@@ -325,9 +366,15 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Main\GetQuote.cshtml" />
+    <Content Include="Views\Shared\_Layout1.cshtml" />
+    <Content Include="Views\Movie\GetReviews.cshtml" />
+    <Content Include="Views\Movie\ReviewDetails.cshtml" />
+    <Content Include="Views\Movie\WriteReview.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Controllers\Main\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

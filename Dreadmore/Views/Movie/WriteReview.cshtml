@@ -1,0 +1,228 @@
+﻿@model Dreadmore.DTOModels.GetReviews
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="~/Scripts/jquery.ui.autocomplete.scroll.min.js"></script>
+<style type="text/css">
+    .LabelText {
+        width: 400px;
+    }
+
+    .TextText {
+        width: 400px;
+    }
+
+    .BigTextText {
+        max-width: 100%;
+        width: 600px;
+    }
+
+    .RatingText {
+        max-width: 100%;
+        width: 100px;
+    }
+
+    .RowSpacer {
+        padding-bottom: 20px;
+    }
+</style>
+<script type="text/javascript">
+    var movies = [];
+    var count;
+    function clearTable() {
+        movies.length = 0;
+    }
+
+    function MovieSearch(isButClick) {
+
+        var search = document.getElementById("moviePick");
+        if (search.value.length < 3) {
+
+            return;
+        }
+
+        clearTable();
+        var fc = document.getElementById("foundCount");
+        fc.innerText = "Searching for movies";
+        fc.style.color = "silver";
+
+        var pages = 1;
+        if (pages === 1) {
+            pages = callData(search.value, pages);
+        }
+
+        if (pages < 8) {
+            if (pages > 1) {
+               for (var p = 2; p < pages + 1; p++) {
+                    callData(search.value, p);
+               }
+            }
+        }
+
+        $('#moviePick').autocomplete({
+            maxShowItems: 10, // Make list height fit to 5 items when items are over 5.
+            source: movies
+        });
+
+        //$("#moviePick" ).autocomplete({
+        //    source: movies
+        //});
+
+    }
+    function callData(txt, p) {
+        var fc = document.getElementById("foundCount");
+        $.ajax({
+            url: 'http://www.omdbapi.com/?s=' + txt + '*&apikey=c1eac364&page=' + p,
+            type: 'GET',
+            async: false,
+            dataType: 'json',
+            success: function (data) {
+                var d = JSON.stringify(data);
+                var dd = JSON.parse(d);
+                if (dd.Response == "False") {
+                    fc.innerText = "Error in data search.  Keep typing.";
+                    fc.style.color = "tomato";
+                    return;
+                }
+                    var n = data.Search.length;
+                    for (i = 0; i < n; i++) {
+                        var s = JSON.stringify(data.Search[i]);
+                        count = dd.totalResults;
+
+                        pages = Math.ceil(count / n);
+                        fc.style.color = 'tomato';
+                        if (pages > 8) {
+                            fc.innerText = count +
+                                " records have been found.  Please enter more characters to narrow search.";
+                            return;
+                        } else {
+                            if (count < 81) {
+                                fc.innerText = count + " records have been found";
+                                }
+                        }
+
+                        var res = JSON.parse(s);
+
+                        movies.push(res.Title + ' (' + res.Year + ')' + ' IMDB# |' + res.imdbID);
+                        fc.style.color = 'silver';
+                        //$('#ChooseMovie').append('<tr class="movieRow"><td><a href="#" onclick=selectMovie("' + escape(res.Title) + '","' + res.imdbID + '")>' + res.Title + ' (' + res.Year + ')' + '</a></td></tr>');
+                        //$('#ChooseMovie').append('<tr class="movieRow"><td>' + res.Title + ' (' + res.Year  +')' + '</td></tr>');
+                    }
+
+            },
+            error: function (request, error) {
+                alert("Request: " + JSON.stringify(request));
+            }
+        });
+
+        return pages;
+    }
+
+
+    $(document).ready(function () {
+    $( "#moviePick" ).autocomplete({
+
+        select: function (event, ui) {
+            var title = ui.item.value.split('|');
+            var imdb = title[title.length - 1];
+
+            var movieSplit = ui.item.value.split(')');
+            var movie = movieSplit[0] + ')';
+            $("#imdbid").val(imdb);
+            $("#movietitle").val(movie);
+
+            return false;
+        }
+        });
+
+    });
+
+
+
+</script>
+
+@{
+    ViewBag.Title = "WriteReview";
+
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+
+
+}
+
+<h2 style="padding-top: 50px;">WriteReview</h2>
+<div>
+    <div class="ui-widget">
+        <label for="moviePick">Search for Movie</label><br />
+        <input placeholder="Enter at least first 3 characters of title" onkeyup="MovieSearch(false)" id="moviePick" style="width: 400px;">
+        <br /><span style="color: red;" id="foundCount"></span>
+    </div>
+</div>
+
+<div class="spacer-25"></div>
+@using (Html.BeginForm())
+{
+    <div id="reviewSection">
+        <fieldset>
+            <table style="font-size: 12pt;">
+                <tr>
+                    <td class="RowSpacer">@Html.LabelFor(Model => Model.IMDBID, new { @class = "LabelText" })</td>
+                    <td class="RowSpacer">
+
+                        @Html.TextBoxFor(Model => Model.IMDBID, new { id = "imdbid", @class = "LabelText" })
+                    </td>
+                    <td class="RowSpacer">@Html.LabelFor(Model => Model.Reviewer, new { @class = "LabelText" })</td>
+                    <td class="RowSpacer">
+                        @Html.TextBoxFor(Model => Model.Reviewer, new { @readonly = true })
+                    </td>
+                </tr>
+                <tr>
+                    <td class="RowSpacer">@Html.LabelFor(Model => Model.MovieTitle, new { @class = "LabelText" })</td>
+                    <td class="RowSpacer" colspan="3">
+                        @Html.TextBoxFor(model => Model.MovieTitle, new { id = "movietitle", @class = "BigTextText" })
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="RowSpacer">@Html.LabelFor(Model => Model.Review)</td>
+                    <td class="RowSpacer" colspan="3">@Html.TextAreaFor(Model => Model.Review, new { id = "moviereview", @class = "BigTextText" })</td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <table>
+                            <tr>
+                                <td colspan="6">
+                                    Please enter a rating for the following categories 1-5 (1 = Bad, 2 = Poor, 3 = Fair, 4 = Good, 5 = Excellent).
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>@Html.LabelFor(Model => Model.ActingPoints)</td>
+                                <td>@Html.TextBoxFor(Model => Model.ActingPoints, new { @class = "RatingText", id = "actingPoints" })</td>
+                                <td>@Html.LabelFor(Model => Model.SoundPoints)</td>
+                                <td>@Html.TextBoxFor(Model => Model.SoundPoints, new { @class = "RatingText", id = "actingPoints" })</td>
+                                <td>@Html.LabelFor(Model => Model.ScriptPoints)</td>
+                                <td>@Html.TextBoxFor(Model => Model.ScriptPoints, new { @class = "RatingText", id = "actingPoints" })</td>
+                            </tr>
+                            <tr>
+                                <td>@Html.LabelFor(Model => Model.EffectsPoints)</td>
+                                <td>@Html.TextBoxFor(Model => Model.EffectsPoints, new { @class = "RatingText", id = "actingPoints" })</td>
+                                <td>@Html.LabelFor(Model => Model.OverAllPoints)</td>
+                                <td>@Html.TextBoxFor(Model => Model.OverAllPoints, new { @class = "RatingText", id = "actingPoints" })</td>
+                                <td>@Html.LabelFor(Model => Model.OverAllPoints)</td>
+                                <td>
+                                    @Html.TextBoxFor(Model => Model.OverAllPoints, new { @class = "RatingText", id = "actingPoints", @readonly = true })
+                                ;
+                                }
+                                })
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <button class="w3-button w3-black w3-hover-red w3-round-large w3-text-red" type="submit">Save</button>
+    </fieldset>
+</div>
+
+}
+

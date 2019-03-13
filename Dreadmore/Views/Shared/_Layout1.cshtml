@@ -1,0 +1,276 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@Page.Title</title>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript" src="../../Scripts/ddaccordion.js"></script>
+
+    <script type="text/javascript">
+        ddaccordion.init({
+            headerclass: "headerbar", //Shared CSS class name of headers group
+            contentclass: "submenu", //Shared CSS class name of contents group
+            revealtype: "click", //Reveal content when user clicks or onmouseover the header? Valid value: "click", "clickgo", or "mouseover"
+            mouseoverdelay: 200, //if revealtype="mouseover", set delay in milliseconds before header expands onMouseover
+            collapseprev: true, //Collapse previous content (so only one open at any time)? true/false
+            defaultexpanded: [], //index of content(s) open by default [index1, index2, etc] [] denotes no content
+            onemustopen: false, //Specify whether at least one header should be open always (so never all headers closed)
+            animatedefault: false, //Should contents open by default be animated into view?
+            persiststate: false, //persist state of opened contents within browser session?
+            toggleclass: ["", ""], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
+            togglehtml: ["", "", ""], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
+            animatespeed: "slow", //speed of animation: integer in milliseconds (ie: 200), or keywords "fast", "normal", or "slow"
+            oninit: function (headers, expandedindices) { //custom code to run when headers have initalized
+                //do nothing
+            },
+            onopenclose: function (header, index, state, isuseractivated) { //custom code to run whenever a header is opened or closed
+                //do nothing
+            }
+        })
+
+    </script>
+    <style type="text/css">
+
+        body {
+            background-color: black;
+        }
+        .Review-Reviewer {
+            color: maroon;
+            font-size: 16pt;
+            font-family: Burgos City;
+        }
+
+        .spacer-25 {
+            height: 25px;
+        }
+
+        .details-header {
+            color: Maroon;
+            font-size: 12pt;
+            font-family: Arial;
+            font-weight: bold;
+        }
+        /*MENU STUFF*/
+        .menu-home {
+            height: 50px;
+            width: 150px;
+            /*background: url('../images/nav/Home_Link.png');*/
+            display: block;
+        }
+
+        .menu-home:hover {
+            background: url('../Images/Nav/Home_Over.png');
+        }
+
+        .menu-movie {
+            height: 50px;
+            width: 150px;
+            background: url('../images/nav/movie_Link.png');
+            display: block;
+        }
+
+        .menu-movie:hover {
+            background: url('../Images/Nav/movie_Over.png');
+        }
+
+        .menu-writing {
+            height: 50px;
+            width: 150px;
+            background: url('../images/nav/writing_Link.png');
+            display: block;
+        }
+
+        .menu-writing:hover {
+            background: url('../Images/Nav/writing_Over.png');
+        }
+
+        .menu-gaming {
+            height: 50px;
+            width: 150px;
+            background: url('../images/nav/gaming_Link.png');
+            display: block;
+        }
+
+        .menu-gaming:hover {
+            background: url('../Images/Nav/gaming_Over.png');
+        }
+
+        .menu-about {
+            height: 50px;
+            width: 150px;
+            background: url('../images/nav/about_Link.png');
+            display: block;
+        }
+
+        .menu-about:hover {
+            background: url('../Images/Nav/about_Over.png');
+        }
+
+        .menu-convention {
+            height: 50px;
+            width: 210px;
+            background: url('../images/nav/convention_Link.png');
+            display: block;
+        }
+
+        .menu-convention:hover {
+            background: url('../Images/Nav/convention_Over.png');
+        }
+
+        .menu-art {
+            height: 50px;
+            width: 210px;
+            background: url('../images/nav/art_Link.png');
+            display: block;
+        }
+
+        .menu-art:hover {
+            background: url('../Images/Nav/art_Over.png');
+        }
+
+        .menu-store {
+            height: 50px;
+            width: 210px;
+            background: url('../images/nav/store_Link.png');
+            display: block;
+        }
+
+        .menu-store:hover {
+            background: url('../Images/Nav/store_Over.png');
+        }
+
+        /*     END OF MENU STUFF     */
+
+        .Quote-text {
+            font-family: The Macabre;
+            font-size: 38pt;
+        }
+
+        .QuoteBy-text {
+            font-family: The Macabre;
+            font-size: 20pt;
+        }
+
+
+
+
+        .urbangreymenu {
+            width: 230px; /*width of menu*/
+        }
+
+        .urbangreymenu .headerbar {
+            margin-bottom: 0; /*bottom spacing between header and rest of content*/
+            text-transform: uppercase;
+        }
+
+        .urbangreymenu .headerbar a {
+            text-decoration: none;
+            display: block;
+        }
+
+        .urbangreymenu ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            margin-bottom: 0; /*bottom spacing between each UL and rest of content*/
+        }
+
+        .urbangreymenu ul li {
+            padding-bottom: 2px; /*bottom spacing between menu items*/
+        }
+
+        .urbangreymenu ul li a {
+            font: normal 28px The Macabre;
+            color: white;
+            background: black;
+            display: block;
+            padding: 5px 0;
+            line-height: 17px;
+            padding-left: 35px; /*link text is indented 8px*/
+            text-decoration: none;
+        }
+
+        .urbangreymenu ul li a:visited {
+            color: white;
+        }
+
+        .urbangreymenu ul li a:hover { /*hover state CSS*/
+            color: maroon;
+            background: black;
+        }
+    </style>
+    @RenderSection("head", required: false)
+</head>
+<body>
+    <div style="position: Absolute; top: 0px;">
+        <img src="~/Images/Title.png" />
+    </div>
+
+    <table>
+        <tr style="vert-align: top;">
+            <td style="width: 20%;">
+
+
+                <div style="padding-top: 100px; height: 600px;" class="urbangreymenu">
+
+                    <a class="menu-home" href="/Main/GetQuote"><img src="~/Images/Nav/Home_Link.png" /></a>
+
+                    <span class="headerbar menu-movie"><a href="#"></a></span>
+                    <ul class="submenu">
+                        <li><a href="http://www.javascriptkit.com/javatutors/">News</a></li>
+                        <li><a href="/Movie/GetReviews">Reviews</a></li>
+                        <li><a href="/Movie/WriteReview/">Write a Review</a></li>
+                    </ul>
+
+                    <span class="headerbar menu-writing"><a href="#"></a></span>
+                    <ul class="submenu">
+                        <li><a href="http://www.javascriptkit.com/cutpastejava.shtml">Stories</a></li>
+                        <li><a href="http://www.javascriptkit.com/javatutors/">Poetry</a></li>
+                        <li><a href="http://www.javascriptkit.com/javatutors/">Books</a></li>
+                    </ul>
+
+                    <span class="headerbar menu-gaming"><a href="#"></a></span>
+                    <ul class="submenu">
+                        <li><a href="http://www.javascriptkit.com/cutpastejava.shtml">Play Games</a></li>
+                        <li><a href="http://www.javascriptkit.com/javatutors/">Reviews</a></li>
+                    </ul>
+
+                    <span class="headerbar menu-art"><a href="#"></a></span>
+                    <ul class="submenu"></ul>
+
+                    <span class="headerbar menu-convention"><a href="#"></a></span>
+                    <ul class="submenu">
+                        <li><a href="http://www.javascriptkit.com/cutpastejava.shtml">Upcoming Conventions</a></li>
+                        <li><a href="http://www.javascriptkit.com/javatutors/">Reviews</a></li>
+                        <li><a href="http://www.javascriptkit.com/javatutors/">Advertise Yours</a></li>
+                    </ul>
+
+                    <span class="headerbar menu-store"><a href="#"></a></span>
+                    <ul class="submenu"></ul>
+
+                    <span class="headerbar menu-about"><a href="#"></a></span>
+                    <ul class="submenu">
+                        <li><a href="http://www.javascriptkit.com/cutpastejava.shtml">About Dreadmore</a></li>
+                        <li><a href="http://www.javascriptkit.com/javatutors/">Contact Us</a></li>
+                        <li><a href="http://www.javascriptkit.com/javatutors/">Our Staff</a></li>
+                        <li><a href="http://www.javascriptkit.com/javatutors/">Faqs</a></li>
+                    </ul>
+
+                </div>
+
+
+
+            </td>
+            <td>@RenderBody()</td>
+            <td style="width: 15%;"></td>
+        </tr>
+    </table>
+
+</body>
+
+</html>
+
+
+
