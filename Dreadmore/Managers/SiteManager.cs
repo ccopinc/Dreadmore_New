@@ -5,12 +5,12 @@ using System.Web;
 using Dreadmore;
 using Dreadmore.DTOModels;
 
-namespace Dreodmare.Managers
+namespace Dreadmore.Managers
 {
     public class SiteManager
     {
         DMDB db = new DMDB();
-        public Quotes GetQuote()
+        public Quote GetQuote()
         {
             List<quote_Quote> list = db.quote_Quote.ToList();
             int n = list.Count;
@@ -18,9 +18,9 @@ namespace Dreodmare.Managers
             int i = rnd.Next(0, n);
             quote_Quote dbQuote = list[i]; 
 
-            Quotes quote = new Quotes()
+            Quote quote = new Quote()
             {
-                Quote = dbQuote.Quote,
+                QuoteText = dbQuote.Quote,
                 QuoteBy = dbQuote.QuoteBy,
                 QuoteByImage = dbQuote.QuoteByImage
             };

@@ -222,6 +222,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DMDB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="DTOModels\Infrastructure\MapperBase.cs" />
+    <Compile Include="DTOModels\Quote.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -326,7 +328,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="DTOModels\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
