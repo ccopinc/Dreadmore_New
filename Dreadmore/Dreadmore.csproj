@@ -295,10 +295,14 @@
     <Content Include="Images\Nav\Gaming_Over.png" />
     <Content Include="Images\Nav\Home_Link.png" />
     <Content Include="Images\Nav\Home_Over.png" />
+    <Content Include="Images\Nav\Login_link.png" />
+    <Content Include="Images\Nav\Login_over.png" />
     <Content Include="Images\Nav\Movie_Link.png" />
     <Content Include="Images\Nav\Movie_Over.png" />
     <Content Include="Images\Nav\store_link.png" />
     <Content Include="Images\Nav\store_over.png" />
+    <Content Include="Images\Nav\TrueTales_Link.png" />
+    <Content Include="Images\Nav\TrueTales_over.png" />
     <Content Include="Images\Nav\Writing_Link.png" />
     <Content Include="Images\Nav\Writing_Over.png" />
     <Content Include="Images\Quotes\Dante_Inferno.png" />

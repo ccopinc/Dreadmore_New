@@ -141,6 +141,28 @@
             background: url('../Images/Nav/store_Over.png');
         }
 
+        .menu-true {
+            height: 50px;
+            width: 210px;
+            background: url('../images/nav/truetales_Link.png');
+            display: block;
+        }
+
+            .menu-true:hover {
+                background: url('../Images/Nav/truetales_Over.png');
+            }
+
+        .menu-login {
+            height: 50px;
+            width: 210px;
+            background: url('../images/nav/login_Link.png');
+            display: block;
+        }
+
+        .menu-login:hover {
+            background: url('../Images/Nav/login_Over.png');
+        }
+
         /*     END OF MENU STUFF     */
 
         .Quote-text {
@@ -204,9 +226,9 @@
     @RenderSection("head", required: false)
 </head>
 <body>
-    <div style="position: Absolute; top: 0px;">
-        <img src="~/Images/Title.png" />
-    </div>
+<div style="position: Absolute; top: 0px; width: 100%;">
+    <img src="~/Images/Title.png" />
+</div>
 
     <table>
         <tr style="vert-align: top;">
@@ -237,6 +259,9 @@
                         <li><a href="http://www.javascriptkit.com/javatutors/">Reviews</a></li>
                     </ul>
 
+                    <span class="headerbar menu-true"><a href="#"></a></span>
+                    <ul class="submenu"></ul>
+
                     <span class="headerbar menu-art"><a href="#"></a></span>
                     <ul class="submenu"></ul>
 
@@ -257,6 +282,9 @@
                         <li><a href="http://www.javascriptkit.com/javatutors/">Our Staff</a></li>
                         <li><a href="http://www.javascriptkit.com/javatutors/">Faqs</a></li>
                     </ul>
+
+                    <span style="width: 150px;" class="headerbar menu-login"><a href="#"></a></span>
+                    <ul class="submenu"></ul>
 
                 </div>
 
